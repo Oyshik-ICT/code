@@ -4,35 +4,31 @@ using namespace std;
 
 int main()
 {
-    int t,sum,k,n,i,c,t1;
+    int t,sum,k,n,i,c,ave;
     scanf("%d",&t);
     while(t--){
         scanf("%d%d",&n,&k);
         int a[n];
         sum=0;
-        c=0;
-        t1=0;
         for(i=0;i<n;i++){
             scanf("%d",&a[i]);
-        }
-        sort(a,a+n);
-        for(i=n-1;i>=0;i--){
             sum=sum+a[i];
-            if(t1==2){
-                break;
-            }
-            if(sum>=k){
-                sum=0;
-                t1++;
-            }
-            c++;
         }
-        if(t1==2){
-            printf("%d\n",c);
+        k=k*2+1;
+        if(k>sum){
+            printf("-1\n");
+            continue;
         }
-        else{
+        ave=sum/n;
+        c=k/ave;
+        if(c<=0){
             printf("-1\n");
         }
+
+        else{
+            printf("%d\n",c);
+        }
+
     }
 
     return 0;
